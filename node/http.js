@@ -16,3 +16,7 @@
 // server.listen(8082, () => {
 //   console.log("STARTED TO LISTEN ...");
 // });
+//-------------------------------
+
+const http = require("http"); // IMPORT
+const currencyJson = require("./currencydata.json");
