@@ -20,3 +20,11 @@
 
 const http = require("http"); // IMPORT
 const currencyJson = require("./currencydata.json");
+const server = http.createServer((request, response) => {
+    const url = request.url;
+    // console.log(url);
+    const splittedData = request.url.split("/");
+    // console.log(splittedData);
+  
+    const currency = splittedData[2];
+    console.log(currency);
