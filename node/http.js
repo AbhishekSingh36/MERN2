@@ -28,3 +28,17 @@ const server = http.createServer((request, response) => {
   
     const currency = splittedData[2];
     console.log(currency);
+
+    if (request.url === "/") {
+        response.write("<h1>Currency Database</h1>");
+      } else if (request.url === "/currencies") {
+        response.writeHead(200, { "Content-Type": "application/json" });
+        response.write(JSON.stringify(currencyJson));
+      } else if (
+        splittedData.length === 3 &&
+        request.url.startsWith("/currencies")
+      ) {
+        // /currencies/something
+        const currenyData = currencyJson.data.find(
+          (currency) => currency.id === splittedData[2]
+        );
