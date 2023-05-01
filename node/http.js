@@ -49,3 +49,6 @@ const server = http.createServer((request, response) => {
           else {
             response.writeHead(404);
           }
+          else {
+            response.writeHead(404);
+          }
