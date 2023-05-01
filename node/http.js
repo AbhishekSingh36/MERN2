@@ -42,3 +42,7 @@ const server = http.createServer((request, response) => {
         const currenyData = currencyJson.data.find(
           (currency) => currency.id === splittedData[2]
         );
+        if (currenyData) {
+            response.writeHead(200, { "Content-Type": "application/json" });
+            response.write(JSON.stringify(currenyData));
+          }
