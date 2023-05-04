@@ -17,3 +17,10 @@ const express = require('express')
 const currencyJson = require('./currencydata.json')
 const app = express();
 const PORT = 8082
+
+app.get('/', (request,response) => {
+    // response.write('<h1>Hello from express</h1>')
+    // response.end() 
+    // ------- Short--
+    response.send('<h1>Currency Database</h1>')
+})
