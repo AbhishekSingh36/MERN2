@@ -24,3 +24,6 @@ app.get('/', (request,response) => {
     // ------- Short--
     response.send('<h1>Currency Database</h1>')
 })
+app.get('/currencies', (request, response) => {
+    response.json({currencyJson})
+})
