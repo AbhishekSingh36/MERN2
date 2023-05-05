@@ -33,5 +33,8 @@ app.get('/currencies/:symbol', (request, response) => {
     const currencyData = currencyJson.data.find(
         (currency) => currency.id === symbol
       );
+      if (currencyData) {
+        response.json(currencyData)
+      }
      
 })
