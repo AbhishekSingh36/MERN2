@@ -24,6 +24,7 @@ app.get('/', (request,response) => {
     // ------- Short--
     response.send('<h1>Currency Database</h1>')
 })
+
 app.get('/currencies', (request, response) => {
     response.json({currencyJson})
 })
@@ -35,6 +36,11 @@ app.get('/currencies/:symbol', (request, response) => {
       );
       if (currencyData) {
         response.json(currencyData)
+      } else {
+        response.sendStatus(404);
       }
-     
+})
+
+app.listen(PORT, () => {
+    console.log('Started to listen on PORT:', PORT)
 })
