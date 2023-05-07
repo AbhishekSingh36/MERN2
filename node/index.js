@@ -12,6 +12,8 @@
 //   console.log("Started to listen on PORT: ", PORT);
 // });
 
+//------------- 2 ------------
+
 const { request, response } = require('express');
 const express = require('express')
 const currencyJson = require('./currencydata.json')
