@@ -472,4 +472,23 @@
     "offset": "-7:00",
     "description": "Mountain Time (US & Canada)"
     }
+    },
+    "email": "curtis.jonk@example.com",
+    "login": {
+    "uuid": "25228c7d-bd9b-40fb-8a3e-614c265f6826",
+    "username": "browntiger458",
+    "password": "odyssey",
+    "salt": "R1JSc9Td",
+    "md5": "4f6e624ae33ae21def3fec4bcd18a773",
+    "sha1": "585c50d9b15c8e079a299b2496deafcc7b56959e",
+    "sha256": "ef49aa927c462dcc324b4b771b402c7134913a63435b2f3ef5cbd9384ca99375"
+    },
+    "dob": {
+    "date": "1948-05-06T18:40:05.646Z",
+    "age": 73
+    },
+    "registered": {
+    "date": "2006-11-07T17:41:49.835Z",
+    "age": 15
     }
+    
