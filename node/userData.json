@@ -491,5 +491,29 @@
     "date": "2006-11-07T17:41:49.835Z",
     "age": 15
     },
-
+    "phone": "(143)-945-1414",
+    "cell": "(897)-913-9825",
+    "id": {
+    "name": "BSN",
+    "value": "26356646"
+    },
+    "picture": {
+    "large": "https://randomuser.me/api/portraits/men/78.jpg",
+    "medium": "https://randomuser.me/api/portraits/med/men/78.jpg",
+    "thumbnail": "https://randomuser.me/api/portraits/thumb/men/78.jpg"
+    },
+    "nat": "NL"
+    },
+    {
+    "gender": "male",
+    "name": {
+    "title": "Mr",
+    "first": "Adrian",
+    "last": "Ibañez"
+    },
+    "location": {
+    "street": {
+    "number": 3457,
+    "name": "Avenida de América"
+    },
     
