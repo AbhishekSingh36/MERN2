@@ -14,3 +14,26 @@ const getUsersWithUuid = (request,response) => {
         response.sendStatus(404)
     }
 }
+const searchUsers = (request,response) => {
+    const {gender, age} = request.query 
+    if(gender && age){
+        response.json(
+            allUsers.data.filter(u => u.gender === gender && Number(u.dob.age) === Number(age))
+        )
+    } else if(gender){
+        
+        response.json(
+            allUsers.data.filter(
+                (u) => u.gender === gender
+            )
+        )
+    } else if(age){
+        
+        response.json(
+            allUsers.data.filter( u => Number(u.dob.age) === Number(age))
+        )
+    } else {
+        
+        response.sendStatus(404)
+    }
+}
