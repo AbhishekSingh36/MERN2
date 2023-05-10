@@ -37,3 +37,6 @@ const searchUsers = (request,response) => {
         response.sendStatus(404)
     }
 }
+module.exports = {
+    getUsers, getUsersWithUuid,searchUsers
+}
