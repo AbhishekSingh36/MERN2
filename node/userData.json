@@ -516,4 +516,49 @@
     "number": 3457,
     "name": "Avenida de América"
     },
-    
+    "city": "Toledo",
+    "state": "Extremadura",
+    "country": "Spain",
+    "postcode": 89378,
+    "coordinates": {
+    "latitude": "-17.7592",
+    "longitude": "-13.2008"
+    },
+    "timezone": {
+    "offset": "0:00",
+    "description": "Western Europe Time, London, Lisbon, Casablanca"
+    }
+    },
+    "email": "adrian.ibanez@example.com",
+    "login": {
+    "uuid": "06750d9e-84d3-4cd1-8f89-1710213d2576",
+    "username": "orangemouse182",
+    "password": "yamaha",
+    "salt": "ItYmXZgb",
+    "md5": "f4b8e6ef1198c79e7b2b0d18d883c537",
+    "sha1": "650789f510ab9233c0e47a5f8267d5a252a6c3d9",
+    "sha256": "0d266a4fd4c5978911a721206342d2d463abb6a2c1529db4e2c7cd521d5279cd"
+    },
+    "dob": {
+    "date": "1969-12-21T05:29:40.561Z",
+    "age": 52
+    },
+    "registered": {
+    "date": "2004-04-07T17:13:47.274Z",
+    "age": 17
+    },
+    "phone": "911-281-343",
+    "cell": "603-374-881",
+    "id": {
+    "name": "DNI",
+    "value": "98872672-G"
+    },
+    "picture": {
+    "large": "https://randomuser.me/api/portraits/men/0.jpg",
+    "medium": "https://randomuser.me/api/portraits/med/men/0.jpg",
+    "thumbnail": "https://randomuser.me/api/portraits/thumb/men/0.jpg"
+    },
+    "nat": "ES"
+    }
+    ]
+    }
