@@ -10,3 +10,15 @@ const getCurrencies = (request, response) => {
       response.json(currencyJson);
     }
   };
+  const getCurrencyFromSymbol = (request, response) => {
+    const symbol = request.params.symbol
+    //console.log(currency)
+    const currencyData = currencyJson.data.find(
+        (currency) => currency.id === symbol
+      );
+      if (currencyData) {
+        response.json(currencyData)
+      } else {
+        response.sendStatus(404);
+      }
+}
