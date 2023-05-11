@@ -22,3 +22,4 @@ const getCurrencies = (request, response) => {
         response.sendStatus(404);
       }
 }
+module.exports = {getCurrencies, getCurrencyFromSymbol}
