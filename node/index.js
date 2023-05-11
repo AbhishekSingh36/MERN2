@@ -20,11 +20,12 @@ const app = express();
 const PORT = 8082
 const x = require('./controllers/currencies.controller')
 const usersControllers = require('./controllers/users.controllers')
+
 app.get('/', (request,response) => {
-    // response.write('<h1>Hello from express</h1>')
-    // response.end() 
-    // ------- Short--
-    response.send('<h1>Currency Database</h1>')
+  // response.write('<h1>Hello from express</h1>')
+  // response.end() 
+  // ------- Short--
+  response.send('<h1>Currency Database</h1>')
 })
 
 app.get('/currencies', (request, response) => {
