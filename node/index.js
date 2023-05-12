@@ -19,6 +19,7 @@ const express = require('express')
 const app = express();
 const PORT = 8082
 const usersControllers = require('./controllers/users.controllers')
+const currencyRoutes = require('./routes/currencies.routes')
 
 app.get('/', (request,response) => {
     // response.write('<h1>Hello from express</h1>')
@@ -28,7 +29,7 @@ app.get('/', (request,response) => {
 })
 
 
-
+app.use('/currencies', currencyRoutes)
 app.get('/users', usersControllers.getUsers)
 app.get('/users/search', usersControllers.searchUsers)
 app.get('/users/:uuid', usersControllers.getUsersWithUuid )
