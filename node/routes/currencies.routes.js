@@ -1,4 +1,5 @@
+const router = require('express').Router();
 const x = require('..currencies.controller')
 
-app.get('/currencies', x.getCurrencies)
-app.get('/currencies/:symbol', x.getCurrencyFromSymbol)
+router.get('/currencies', x.getCurrencies)
+router.get('/currencies/:symbol', x.getCurrencyFromSymbol)
