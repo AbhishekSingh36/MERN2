@@ -22,10 +22,10 @@ const x = require('./controllers/currencies.controller')
 const usersControllers = require('./controllers/users.controllers')
 
 app.get('/', (request,response) => {
-  // response.write('<h1>Hello from express</h1>')
-  // response.end() 
-  // ------- Short--
-  response.send('<h1>Currency Database</h1>')
+    // response.write('<h1>Hello from express</h1>')
+    // response.end() 
+    // ------- Short--
+    response.send('<h1>Currency Database</h1>')
 })
 
 app.get('/currencies', x.getCurrencies)
@@ -35,21 +35,6 @@ app.get('/users', usersControllers.getUsers)
 app.get('/users/search', usersControllers.searchUsers)
 app.get('/users/:uuid', usersControllers.getUsersWithUuid )
 
-app.get('/currencies', (request, response) => {
-    response.json({currencyJson})
-})
-app.get('/currencies/:symbol', (request, response) => {
-    const symbol = request.params.symbol
-    console.log(currency)
-    const currencyData = currencyJson.data.find(
-        (currency) => currency.id === symbol
-      );
-      if (currencyData) {
-        response.json(currencyData)
-      } else {
-        response.sendStatus(404);
-      }
-})
 
 app.listen(PORT, () => {
     console.log('Started to listen on PORT:', PORT)
