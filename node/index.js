@@ -28,6 +28,13 @@ app.get('/', (request,response) => {
   response.send('<h1>Currency Database</h1>')
 })
 
+app.get('/currencies', x.getCurrencies)
+app.get('/currencies/:symbol', x.getCurrencyFromSymbol)
+
+app.get('/users', usersControllers.getUsers)
+app.get('/users/search', usersControllers.searchUsers)
+app.get('/users/:uuid', usersControllers.getUsersWithUuid )
+
 app.get('/currencies', (request, response) => {
     response.json({currencyJson})
 })
