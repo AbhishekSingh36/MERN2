@@ -23,7 +23,23 @@ const searchUsers = (request,response) => {
         response.json(
             allUsers.data.filter(u => u.gender === gender && Number(u.dob.age) === Number(age))
         )
-    } else if(gender){
+    } else if(!gender && !age){
+        return response
+            .status(422)
+            .json({message: 'Please give gender or age or both'})
+    } else if(age){
+        if(!Number(age)){
+            return response
+            .status(422)
+            .json({message: 'Age should be a number'})
+        }
+        else if(Number(age) < 0 || Number(age) >= 100){
+            return response
+            .status(422)
+            .json({message: 'Age should be between 0-100'})
+        }
+    }
+    else if(gender){
         
         response.json(
             allUsers.data.filter(
