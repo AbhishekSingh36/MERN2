@@ -41,5 +41,5 @@ const searchUsers = (request,response) => {
     }
 }
 module.exports = {
-    getUsers, getUsersWithUuid,searchUsers
+    getUsers,searchUsers, getUsersWithUuid
 }
