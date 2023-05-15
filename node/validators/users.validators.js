@@ -6,3 +6,8 @@ const schema = Joi.object().keys({
     gender: Joi.string().valid('male','female')
 })
 .or('age', 'gender') 
+
+//Query Params  - Objetc [age:2], gender: male
+const getQueryErrors = (queryParams) => {
+    
+}
