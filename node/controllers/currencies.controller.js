@@ -1,5 +1,20 @@
 const currencyJson = require('../currencydata.json')
 
+const password = "LetMeIn"
+
+function verifyPassword(headers){
+  const input = headers.authorization;
+  if(!input) {
+    return false
+  } 
+  else if(input === password){
+    return true
+  }
+  else{
+    return false
+  }
+}
+
 const getCurrencies = (request, response) => {
 
   const correctPassword = verifyPassword(request.headers)
