@@ -1,6 +1,6 @@
 const currencyJson = require('../currencydata.json')
 
-const password = "LetMeIn"
+const password = process.env.ROUTE_PASSWORD;
 
 function verifyPassword(headers){
   const input = headers.authorization;
