@@ -1,7 +1,8 @@
+require('dotenv').config();
 const { request, response } = require('express');
 const express = require('express')
 //const usersControllers = require('./controllers/users.controllers');
-
+   
 const currencyRoutes = require('./routes/currencies.routes')
 const usersRoutes = require('./routes/users.routes')
 const app = express();
