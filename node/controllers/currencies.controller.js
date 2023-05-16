@@ -1,6 +1,12 @@
 const currencyJson = require('../currencydata.json')
 
 const getCurrencies = (request, response) => {
+
+  const correctPassword = verifyPassword(request.headers)
+  if(!correctPassword){
+    return response.sendStatus(403)
+  }
+
   const minValue = request.query.min_value; //ask this in QnA
   if (minValue) {
     const data = currencyJson.data.filter(
