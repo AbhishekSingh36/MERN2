@@ -1,4 +1,6 @@
 const allUsers = require("../usersData.json");
+const {getQueryErrors} = require('../validators/users.validators')
+
 
 const getUsers = (request, response) => {
   response.json(allUsers);
@@ -16,13 +18,18 @@ const getUsersWithUuid = (request, response) => {
 
 const searchUsers = (request, response) => {
   const { gender, age } = request.query;
+  // const error = getQueryErrors({gender,age})
+  // if(error){
+  //   return response.status(422).json({error})
+  // }
   if (gender && age) {
     response.json(
       allUsers.data.filter(
         (u) => u.gender === gender && Number(u.dob.age) === Number(age)
       )
     );
-  } else if (!gender && !age) {
+  } 
+  else if (!gender && !age) {
     return response
       .status(422)
       .json({ message: "Please give gender or age or both" });
@@ -46,17 +53,13 @@ const searchUsers = (request, response) => {
           )
       )
     }
-
-    // response.json(
-    //     allUsers.data.filter(
-    //         (u) => u.gender === gender
-    //     )
-    // )
-  } else if (age) {
+  } 
+  else if (age) {
     response.json(
       allUsers.data.filter((u) => Number(u.dob.age) === Number(age))
     );
-  } else {
+  } 
+  else {
     response.sendStatus(404);
   }
 };

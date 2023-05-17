@@ -9,5 +9,10 @@ const schema = Joi.object().keys({
 
 //Query Params  - Objetc [age:2], gender: male
 const getQueryErrors = (queryParams) => {
-    
+    const result = schema.validate(queryParams)
+    return result.error;
+}
+
+module.exports = {
+    getQueryErrors,
 }
