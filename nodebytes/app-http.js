@@ -15,3 +15,14 @@ http.createServer((request, response) => {
             response.write(todoList.toString())
 
         }
+        /* Add a TODO to the list
+        ** curl -v -X POST -d '{"name":"Plan for next week"}' http://localhost:8081/todos -H 'content-type:application/json'
+        */
+        else if (method === "POST") {
+            let body = '';
+
+            request.on('error', (err) => {
+                console.error(err);
+
+            }).on('data', (chunk) => {
+                body += chunk;
