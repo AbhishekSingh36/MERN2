@@ -26,3 +26,10 @@ http.createServer((request, response) => {
 
             }).on('data', (chunk) => {
                 body += chunk;
+            }).on('end', () => {
+                body = JSON.parse(body);
+                let newTodo = body.name
+                todoList.push(newTodo)
+
+                response.writeHead(201);
+            });
