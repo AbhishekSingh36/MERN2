@@ -33,3 +33,7 @@ http.createServer((request, response) => {
 
                 response.writeHead(201);
             });
+        } 
+        /* Delete a TODO to the list
+        ** curl -v -X DELETE -d '{"name":"Play Cricket"}' http://localhost:8081/todos
+        */
