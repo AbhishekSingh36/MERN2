@@ -37,3 +37,10 @@ http.createServer((request, response) => {
         /* Delete a TODO to the list
         ** curl -v -X DELETE -d '{"name":"Play Cricket"}' http://localhost:8081/todos
         */
+        else if (method === "DELETE") {
+            let body = '';
+            request.on('error', (err) => {
+                console.error(err);
+
+            }).on('data', (chunk) => {
+                body += chunk;
