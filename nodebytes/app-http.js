@@ -52,3 +52,9 @@ http.createServer((request, response) => {
                         todoList.splice(i, 1);
                     }
                 }
+                response.writeHead(204);
+            });
+
+        } else {
+            response.writeHead(501);
+        }
