@@ -44,3 +44,11 @@ http.createServer((request, response) => {
 
             }).on('data', (chunk) => {
                 body += chunk;
+            }).on('end', () => {
+                body = JSON.parse(body);
+                let deleteTodo = body.name;
+                for (let i = 0; i < todoList.length; i++) {
+                    if (todoList[i] === deleteTodo) {
+                        todoList.splice(i, 1);
+                    }
+                }
