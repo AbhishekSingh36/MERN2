@@ -58,3 +58,8 @@ http.createServer((request, response) => {
         } else {
             response.writeHead(501);
         }
+    } else {
+        response.writeHead(404);
+    }
+
+    response.end();
