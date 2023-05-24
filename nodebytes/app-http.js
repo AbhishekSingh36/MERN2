@@ -1,5 +1,6 @@
 const http = require('http');
 const port = 8081;
+
 let todoList = ["Complete Node Byte", "Play Cricket"];
 
 http.createServer((request, response) => {
@@ -26,6 +27,7 @@ http.createServer((request, response) => {
 
             }).on('data', (chunk) => {
                 body += chunk;
+
             }).on('end', () => {
                 body = JSON.parse(body);
                 let newTodo = body.name
@@ -33,6 +35,7 @@ http.createServer((request, response) => {
 
                 response.writeHead(201);
             });
+
         } 
         /* Delete a TODO to the list
         ** curl -v -X DELETE -d '{"name":"Play Cricket"}' http://localhost:8081/todos
@@ -44,6 +47,7 @@ http.createServer((request, response) => {
 
             }).on('data', (chunk) => {
                 body += chunk;
+
             }).on('end', () => {
                 body = JSON.parse(body);
                 let deleteTodo = body.name;
@@ -52,17 +56,20 @@ http.createServer((request, response) => {
                         todoList.splice(i, 1);
                     }
                 }
+
                 response.writeHead(204);
             });
 
         } else {
             response.writeHead(501);
         }
+
     } else {
         response.writeHead(404);
     }
 
     response.end();
+
 }).listen(port, () => {
-    
+    console.log(`Nodejs server started on port ${port}`)
 });
