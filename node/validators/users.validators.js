@@ -8,8 +8,8 @@ const schema = Joi.object().keys({
 .or('age', 'gender') 
 
 //Query Params  - Objetc [age:2], gender: male
-const validateSearchQuery = (requeest, response, next) => {
-    const result = schema.validate(Request.query)
+const getQueryErrors = (queryParams) => {
+    const result = schema.validate(queryParams)
     return result.error;
 }
 
