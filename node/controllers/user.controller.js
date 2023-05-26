@@ -29,11 +29,11 @@ const searchUsers = (request, response) => {
       )
     );
   } 
-  else if (!gender && !age) {
+  if (!gender && !age) {
     return response
       .status(422)
       .json({ message: "Please give gender or age or both" });
-  } else if (age) {
+  } if (age) {
     if (!Number(age)) {
       return response.status(422).json({ message: "Age should be a number" });
     } else if (Number(age) < 0 || Number(age) >= 100) {
@@ -41,7 +41,7 @@ const searchUsers = (request, response) => {
         .status(422)
         .json({ message: "Age should be between 0-100" });
     }
-  } else if (gender) {
+  } if (gender) {
      if (!["male", "female"].includes(gender)) {
       return response
         .status(422)
@@ -54,7 +54,7 @@ const searchUsers = (request, response) => {
       )
     }
   } 
-  else if (age) {
+  if (age) {
     response.json(
       allUsers.data.filter((u) => Number(u.dob.age) === Number(age))
     );

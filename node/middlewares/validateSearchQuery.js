@@ -10,9 +10,13 @@ const schema = Joi.object().keys({
 //Query Params  - Objetc [age:2], gender: male
 const validateSearchQuery = (requeest, response, next) => {
     const result = schema.validate(Request.query)
-    return result.error;
+    if(result.error){
+        return response.status(422).json({error})
+    }
+    return next();
 }
 
 module.exports = {
     getQueryErrors,
 }
+
