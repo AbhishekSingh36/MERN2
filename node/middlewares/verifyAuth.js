@@ -6,5 +6,11 @@ function verifyPassword(request, response, next){
         return response.status(403).json({message: 'Just input password'})
 
     }
-    
+    if(input !== password){
+        return response.status(403).json({message: 'password is not correct'})
+    }
+    return next();
+}
+module.exports = {
+    verifyPassword
 }
