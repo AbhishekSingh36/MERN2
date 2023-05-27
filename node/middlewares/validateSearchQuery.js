@@ -17,6 +17,6 @@ const validateSearchQuery = (requeest, response, next) => {
 }
 
 module.exports = {
-    getQueryErrors,
+    validateSearchQuery
 }
 
