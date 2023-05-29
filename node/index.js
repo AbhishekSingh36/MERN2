@@ -2,6 +2,7 @@ require('dotenv').config();
 const { request, response } = require('express');
 const express = require('express')
 const {verifyPassword} = require('./middlewares/verifyAuth')
+const mongoose = require('mongoose')
 //const usersControllers = require('./controllers/users.controllers');
    
 const currencyRoutes = require('./routes/currencies.routes')
