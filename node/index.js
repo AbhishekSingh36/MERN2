@@ -4,7 +4,11 @@ const express = require('express')
 const {verifyPassword} = require('./middlewares/verifyAuth')
 const mongoose = require('mongoose')
 //const usersControllers = require('./controllers/users.controllers');
-   
+
+const DB_URI = "mongoose://127.0.0.1"
+mongoose
+    .connect()
+
 const currencyRoutes = require('./routes/currencies.routes')
 const usersRoutes = require('./routes/users.routes')
 const app = express();
