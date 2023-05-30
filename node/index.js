@@ -5,9 +5,10 @@ const {verifyPassword} = require('./middlewares/verifyAuth')
 const mongoose = require('mongoose')
 //const usersControllers = require('./controllers/users.controllers');
 
-const DB_URI = "mongoose://127.0.0.1"
+const DB_URI = "mongoose://127.0.0.1:27017"
 mongoose
-    .connect()
+    .connect(DB_URI)
+    .then(() => {console.log('connected to DB at ', DB_URI)})
 
 const currencyRoutes = require('./routes/currencies.routes')
 const usersRoutes = require('./routes/users.routes')
