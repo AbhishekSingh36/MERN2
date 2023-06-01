@@ -10,3 +10,5 @@ const mongoose = require('mongoose')
 
  // To use and validate data we use mongoose model
  const model = mongoose.model('blogs', blogSchema)
+
+ module.exports = model;
