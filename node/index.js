@@ -3,6 +3,7 @@ const { request, response } = require('express');
 const express = require('express')
 const {verifyPassword} = require('./middlewares/verifyAuth')
 const mongoose = require('mongoose')
+const blogRoutes = require('./routes/blogs.routes')
 //const usersControllers = require('./controllers/users.controllers');
 
 const DB_URI = "mongoose://127.0.0.1:27017"
