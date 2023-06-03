@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 const blogRoutes = require('./routes/blogs.routes')
 //const usersControllers = require('./controllers/users.controllers');
 
-const DB_URI = "mongoose://127.0.0.1:27017"
+const DB_URI = "mongodb://127.0.0.1:27017"
 mongoose
     .connect(DB_URI)
     .then(() => {console.log('connected to DB at ', DB_URI)})
@@ -28,7 +28,11 @@ app.get('/', (request,response) => {
 
 app.use('/currencies', currencyRoutes)
 app.use('/users',usersRoutes )
+app.use('/blogs', blogs)
 
 app.listen(PORT, () => {
     console.log('Started to listen on PORT:', PORT)
 })
+
+
+
