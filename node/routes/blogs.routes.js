@@ -1,7 +1,7 @@
 const router = require('express').Router();
-const blogsController = require('../controllers/blogs.controller')
+const blogsController = require('../controllers/blogs.controllers')
 
-router.get('/new', blogController.createnewBlog)
+router.get('/new', blogsController.createNewBlog)
 
 
 module.exports = router

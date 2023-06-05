@@ -1,7 +1,6 @@
-const { response } = require('express')
 const Blogs = require('../models/blogs.models')
 
-const createNewBlog = (Request, Response) => {
+const createNewBlog = (request, response) => {
     const document = new Blogs({title: 'First Blog'})
     console.log(document)
     response.sendStatus(200)
