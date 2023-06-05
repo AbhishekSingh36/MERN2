@@ -11,8 +11,8 @@ const mongoose = require('mongoose')
 const blogSchema = new mongoose.Schema({
    title: {type: String, required: true, unique: true},
    author: {type: [String]},
-   content: {type: String},
-   publishedAt: Date
+   content: {type: String, default: ''},
+   publishedAt: {type:Date, default: null},
 })
 
  // To use and validate data we use mongoose model
