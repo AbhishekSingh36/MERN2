@@ -16,7 +16,7 @@ const currencyRoutes = require('./routes/currencies.routes')
 const usersRoutes = require('./routes/users.routes')
 const app = express();
 const PORT = 8082
-
+ 
 app.use(verifyPassword)
 app.get('/', (request,response) => {
     // response.write('<h1>Hello from express</h1>')
@@ -28,11 +28,9 @@ app.get('/', (request,response) => {
 
 app.use('/currencies', currencyRoutes)
 app.use('/users',usersRoutes )
-app.use('/blogs', blogs)
+app.use('/blogs', blogRoutes)
 
 app.listen(PORT, () => {
     console.log('Started to listen on PORT:', PORT)
 })
-
-
 
