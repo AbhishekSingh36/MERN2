@@ -1,12 +1,17 @@
-const Blogs = require('../models/blogs.models')
+const Blogs = require("../models/blogs.models");
 
 const createNewBlog = async (request, response) => {
-    const document = new Blogs({title: 'First Blog'})
-    await document.save()
-    console.log(document, 'Blog Details')
-    response.sendStatus(200)
-}
+  try {
+    //const document = new Blogs({title: 'First Blog'}) // hard code the title
+    const document = new Blogs(request.body); // takes an input
+    await document.save();
+    console.log(document, "Blog Details");
+    response.sendStatus(200);
+  } catch (err) {
+    response.status(500).json({ error: err.message });
+  }
+};
 
 module.exports = {
-    createNewBlog
-}
+  createNewBlog,
+};
