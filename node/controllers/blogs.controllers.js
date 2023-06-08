@@ -4,7 +4,7 @@ const createNewBlog = async (request, response) => {
   try {
     //const document = new Blogs({title: 'First Blog'}) // hard code the title
     const document = new Blogs(request.body); // takes an input
-    //await document.save();
+    await document.save();
     console.log(document, "Blog Details");
     response.sendStatus(200);
   } catch (err) {
