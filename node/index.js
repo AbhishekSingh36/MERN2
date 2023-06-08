@@ -25,7 +25,7 @@ app.get('/', (request,response) => {
     response.send('<h1>Currency Database</h1>')
 })
 
-
+app.use(express.json()) // Express understand JSON in request.body
 app.use('/currencies', currencyRoutes)
 app.use('/users',usersRoutes )
 app.use('/blogs', blogRoutes)
