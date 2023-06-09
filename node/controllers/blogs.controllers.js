@@ -12,6 +12,17 @@ const createNewBlog = async (request, response) => {
   }
 };
 
+const getAllBlogs = async(request, response) => {
+  try {
+    const blogs = await Blogs.find({})
+    response.json(blogs)
+    
+  } catch (err) {
+    response.status(500).json({ error: err.message });
+  }
+}
+
 module.exports = {
   createNewBlog,
+  getAllBlogs
 };
