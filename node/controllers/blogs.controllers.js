@@ -13,19 +13,20 @@ const createNewBlog = async (request, response) => {
   }
 };
 
-const getAllBlogs = async (request, response) => {
+const getAllBlogs = async(request, response) => {
   try {
     const blogs = await Blogs.find({})
     response.json(blogs)
-
+    
   } catch (err) {
     response.status(500).json({ error: err.message });
   }
 }
 
-const deleteBlogWithid = async (request, response) => {
+const deleteBlogWithid = async(request,response) => {
   try {
-
+    const {id} = req.params;
+    const result = await Blogs.findOneAndDelete({_id: id})
   } catch (err) {
     response.status(500).json({ error: err.message });
   }
