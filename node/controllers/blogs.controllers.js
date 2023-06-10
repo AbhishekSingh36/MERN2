@@ -1,3 +1,4 @@
+const { response } = require("express");
 const Blogs = require("../models/blogs.models");
 
 const createNewBlog = async (request, response) => {
@@ -12,11 +13,19 @@ const createNewBlog = async (request, response) => {
   }
 };
 
-const getAllBlogs = async(request, response) => {
+const getAllBlogs = async (request, response) => {
   try {
     const blogs = await Blogs.find({})
     response.json(blogs)
-    
+
+  } catch (err) {
+    response.status(500).json({ error: err.message });
+  }
+}
+
+const deleteBlogWithid = async (request, response) => {
+  try {
+
   } catch (err) {
     response.status(500).json({ error: err.message });
   }
@@ -24,5 +33,6 @@ const getAllBlogs = async(request, response) => {
 
 module.exports = {
   createNewBlog,
-  getAllBlogs
+  getAllBlogs,
+  deleteBlogWithid
 };
