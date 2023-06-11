@@ -25,7 +25,7 @@ const getAllBlogs = async(request, response) => {
 
 const deleteBlogWithid = async(request,response) => {
   try {
-    const {id} = req.params;
+    const {id} = request.params;
     const result = await Blogs.findOneAndDelete({_id: id})
     response.json(result)
   } catch (err) {
