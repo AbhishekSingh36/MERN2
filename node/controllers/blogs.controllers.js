@@ -27,6 +27,7 @@ const deleteBlogWithid = async(request,response) => {
   try {
     const {id} = req.params;
     const result = await Blogs.findOneAndDelete({_id: id})
+    response.json(result)
   } catch (err) {
     response.status(500).json({ error: err.message });
   }
