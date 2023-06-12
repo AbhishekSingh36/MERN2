@@ -36,6 +36,9 @@ const deleteBlogWithid = async(request,response) => {
 const updateBlogWithId = async (request, response) => {
   try {
     const {id} = request.params;
+    const filter = {_idL: id}
+    const update = request.body
+    const result = await Blogs.findOneAndUpdate(filter, update, {new: true})
   } catch (err) {
     response.status(500).json({ error: err.message });
   }
