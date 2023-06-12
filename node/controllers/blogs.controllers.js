@@ -33,8 +33,17 @@ const deleteBlogWithid = async(request,response) => {
   }
 }
 
+const updateBlogWithId = async (request, response) => {
+  try {
+    const {id} = request.params;
+  } catch (err) {
+    response.status(500).json({ error: err.message });
+  }
+}
+
 module.exports = {
   createNewBlog,
   getAllBlogs,
-  deleteBlogWithid
+  deleteBlogWithid,
+  updateBlogWithId
 };
