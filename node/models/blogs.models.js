@@ -13,6 +13,8 @@ const blogSchema = new mongoose.Schema({
    author: {type: [String]},
    content: {type: String, default: ''},
    publishedAt: {type:Date, default: null},
+}, {
+   timestamps: true
 })
 
  // To use and validate data we use mongoose model
