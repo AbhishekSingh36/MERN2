@@ -39,6 +39,7 @@ const updateBlogWithId = async (request, response) => {
     const filter = {_idL: id}
     const update = request.body
     const result = await Blogs.findOneAndUpdate(filter, update, {new: true})
+    response.json(result)
   } catch (err) {
     response.status(500).json({ error: err.message });
   }
