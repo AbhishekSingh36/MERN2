@@ -11,12 +11,14 @@ const mongoose = require('mongoose')
 const authorsSchema = new mongoose.Schema({
    fullName: {type: String, maxlenght:25},
    twitterHandle: {type: String},
-   email: {type: String, required: true, maxlenght: 50}
+   email: {type: String, required: true, maxLenght: 50},
+   image: {type: String}
 })
 
 const blogSchema = new mongoose.Schema({
    title: {type: String, required: true, unique: true},
-   author: {type: [String]},
+   //author: {type: [String]},
+   author: {type: [authorsSchema]},
    content: {type: String, default: ''},
    publishedAt: {type:Date, default: null},
 }, {
