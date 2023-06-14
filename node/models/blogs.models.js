@@ -8,8 +8,10 @@ const mongoose = require('mongoose')
 //     publishedAt: Date
 //  })
 
-const authorsSchema new mongoose.Schema({
-   fullName: {}
+const authorsSchema = new mongoose.Schema({
+   fullName: {type: String, maxlenght:25},
+   twitterHandle: {type: String},
+   email: {type: String, required: true, maxlenght: 50}
 })
 
 const blogSchema = new mongoose.Schema({
