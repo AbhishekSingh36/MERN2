@@ -8,6 +8,10 @@ const mongoose = require('mongoose')
 //     publishedAt: Date
 //  })
 
+const authorsSchema new mongoose.Schema({
+   fullName: {}
+})
+
 const blogSchema = new mongoose.Schema({
    title: {type: String, required: true, unique: true},
    author: {type: [String]},
