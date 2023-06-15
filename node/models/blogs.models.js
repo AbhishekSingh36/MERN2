@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const validator = require('validator')
 
 // Schema tells you what the keys are and what valuses should be --- Models will give you the API to do it
 //  const blogSchema = new mongoose.Schema({
@@ -23,7 +24,9 @@ const authorsSchema = new mongoose.Schema(
             return false
       }
     },
-    image: { type: String },
+    image: { 
+      type: String, validate: (value) => validator.isURL(value)
+   },
   },
   {
     _id: false,
