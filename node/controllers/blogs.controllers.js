@@ -44,10 +44,13 @@ const updateBlogWithId = async (request, response) => {
     response.status(500).json({ error: err.message });
   }
 }
-
+const searchBlogs = async (request, response) => {
+  
+}
 module.exports = {
   createNewBlog,
   getAllBlogs,
   deleteBlogWithid,
-  updateBlogWithId
+  updateBlogWithId,
+  searchBlogs
 };
