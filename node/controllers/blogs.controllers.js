@@ -45,9 +45,14 @@ const updateBlogWithId = async (request, response) => {
   }
 }
 const searchBlogs = async (request, response) => {
-  const {title: inputTitle, author} = request.query
+  const {title: inputTitle, author: inputAuthor} = request.query
   const data = await Blogs.find({
-    title: inputTitle
+    title: inputTitle,
+    authors: {
+      $elemMatch: {
+        email: inputAuthor
+      }
+    }
   })
   response.json(data)
 }
