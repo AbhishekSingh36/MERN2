@@ -13,53 +13,69 @@ const createNewBlog = async (request, response) => {
   }
 };
 
-const getAllBlogs = async(request, response) => {
+const getAllBlogs = async (request, response) => {
   try {
-    const blogs = await Blogs.find({})
-    response.json(blogs)
-    
+    const blogs = await Blogs.find({});
+    response.json(blogs);
   } catch (err) {
     response.status(500).json({ error: err.message });
   }
-}
+};
 
-const deleteBlogWithid = async(request,response) => {
+const deleteBlogWithid = async (request, response) => {
   try {
-    const {id} = request.params;
-    const result = await Blogs.findOneAndDelete({_id: id})
-    response.json(result)
+    const { id } = request.params;
+    const result = await Blogs.findOneAndDelete({ _id: id });
+    response.json(result);
   } catch (err) {
     response.status(500).json({ error: err.message });
   }
-}
+};
 
 const updateBlogWithId = async (request, response) => {
   try {
-    const {id} = request.params;
-    const filter = {_idL: id}
-    const update = request.body
-    const result = await Blogs.findOneAndUpdate(filter, update, {new: true})
-    response.json(result)
+    const { id } = request.params;
+    const filter = { _idL: id };
+    const update = request.body;
+    const result = await Blogs.findOneAndUpdate(filter, update, { new: true });
+    response.json(result);
   } catch (err) {
     response.status(500).json({ error: err.message });
   }
-}
+};
 const searchBlogs = async (request, response) => {
-  const {title: inputTitle, author: inputAuthor} = request.query
+  const { title: inputTitle, author: inputAuthor } = request.query;
+
+  // By default this works as AND condition
+  // const data = await Blogs.find({
+  //   title: inputTitle,
+  //   author: {
+  //     $elemMatch: {
+  //       email: inputAuthor
+  //     }
+  //   }
+  // })
+
+  // OR Condtiton
+
   const data = await Blogs.find({
-    title: inputTitle,
-    authors: {
-      $elemMatch: {
-        email: inputAuthor
-      }
-    }
-  })
-  response.json(data)
-}
+    $or: [
+      { title: inputTitle },
+      {
+        author: {
+          $elemMatch: {
+            email: inputAuthor,
+          },
+        },
+      },
+    ],
+  });
+  response.json(data);
+};
 module.exports = {
   createNewBlog,
   getAllBlogs,
   deleteBlogWithid,
   updateBlogWithId,
-  searchBlogs
+  searchBlogs,
 };
