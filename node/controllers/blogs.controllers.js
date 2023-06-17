@@ -45,7 +45,11 @@ const updateBlogWithId = async (request, response) => {
   }
 }
 const searchBlogs = async (request, response) => {
-  
+  const {title: inputTitle, author} = request.query
+  const data = await Blogs.find({
+    title: inputTitle
+  })
+  response.json(data)
 }
 module.exports = {
   createNewBlog,
