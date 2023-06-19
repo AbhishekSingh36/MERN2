@@ -1,6 +1,6 @@
 const { response } = require("express");
 const Blogs = require("../models/blogs.models");
-const {findAllBlogs} = require('../services/blogs.services') // ask qoubt in this
+const {findAllBlogs} = require('../services/findBlogs.service') // ask qoubt in this
 
 const createNewBlog = async (request, response) => {
   try {
