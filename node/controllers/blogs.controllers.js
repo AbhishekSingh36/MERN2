@@ -1,5 +1,6 @@
 const { response } = require("express");
 const Blogs = require("../models/blogs.models");
+const {findAllBlogs} = require('../services/blogs.services') // ask qoubt in this
 
 const createNewBlog = async (request, response) => {
   try {
@@ -15,7 +16,7 @@ const createNewBlog = async (request, response) => {
 
 const getAllBlogs = async (request, response) => {
   try {
-    const blogs = await Blogs.find({});
+    const blogs = await Blogs.findAllBlogs()
     response.json(blogs);
   } catch (err) {
     response.status(500).json({ error: err.message });
