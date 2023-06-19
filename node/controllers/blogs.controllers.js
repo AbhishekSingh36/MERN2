@@ -1,12 +1,13 @@
 const { response } = require("express");
 const Blogs = require("../models/blogs.models");
-const {findAllBlogs} = require('../services/findBlogs.service') // ask qoubt in this
+const {createNewBlog,findAllBlogs} = require('../services/blogs.services') // ask qoubt in this
+
 
 const createNewBlog = async (request, response) => {
   try {
     //const document = new Blogs({title: 'First Blog'}) // hard code the title
-    const document = new Blogs(request.body); // takes an input
-    await document.save();
+  
+    await createNewBlog(request.body)
     console.log(document, "Blog Details");
     response.sendStatus(200);
   } catch (err) {
