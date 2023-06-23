@@ -29,6 +29,7 @@ class BlogService {
       new: true,
     });
     return updatedDoc;
+    console.log({updatedDoc})
   };
 
   findByAuthorOrTitle = async ({ title, author }) => {
