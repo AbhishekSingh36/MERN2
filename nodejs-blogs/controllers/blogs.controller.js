@@ -5,17 +5,15 @@ const getAllBlogs = async (req, res) => {
   try {
     const blogs = await BlogServiceInstance.findAll();
     res.json(blogs);
-    //console.log('In try')
   } catch (error) {
     res.status(404).json({ message: "Could Not Fetch Blogs from DB", error });
-    // console.log('In catch')
   }
 };
 
 const createNewBlog = async (req, res) => {
   try {
     const body = req.body;
-    const newBlog = await BlogServiceInstance.createNewBlog(body);
+    const newBlog = await BlogServiceInstance.create(body);
     res.json(newBlog);
   } catch (error) {
     res.status(500).json({
@@ -54,7 +52,7 @@ const updateBlogsWithId = async (req, res) => {
 const searchBlogs = async (req, res) => {
   const { title, author } = req.query;
   try {
-    const result = await BlogServiceInstance.findByAuthorOrTitle({
+    const result = BlogServiceInstance.findByAuthorOrTitle({
       title,
       author,
     });
