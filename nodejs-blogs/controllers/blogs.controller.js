@@ -50,12 +50,15 @@ const updateBlogsWithId = async (req, res) => {
 };
 
 const searchBlogs = async (req, res) => {
+  console.log("IN THE CONTROLLER FOR search Blog")
   const { title, author } = req.query;
+  console.log({title, author})
   try {
-    const result = BlogServiceInstance.findByAuthorOrTitle({
+    const result = await BlogServiceInstance.findByAuthorOrTitle({
       title,
       author,
     });
+    console.log({result})
     res.json(result);
   } catch (error) {
     res
