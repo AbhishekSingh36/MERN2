@@ -29,16 +29,18 @@ class BlogService {
       new: true,
     });
     return updatedDoc;
-    console.log({updatedDoc})
   };
 
   findByAuthorOrTitle = async ({ title, author }) => {
+    console.log('In the service - findByAuthorOrTitle')
     const matchingBlogs = await Blogs.find({
       $or: [
         { title: { $regex: new RegExp(title), $options: "gi" } },
         { author: { $elemMatch: { email: author } } },
       ],
     });
+    console.log('In Matcing Blogs')
+    console.log({matchingBlogs}, "InmatchingBlogs")
     return matchingBlogs;
   };
 }
