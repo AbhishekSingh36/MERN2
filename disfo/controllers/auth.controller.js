@@ -1,7 +1,7 @@
 const AuthService = require('../services/auth.service')
 const AuthServiceInstance = new AuthService()
 
-const postSignup = (request,response) => {
+const postSignup = async(request,response) => {
     try {
         const data = request.body 
         const result =  await AuthServiceInstance.signup(data)
