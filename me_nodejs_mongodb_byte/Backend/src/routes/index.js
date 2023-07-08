@@ -3,7 +3,7 @@ const todoRoute = require("./todo.route");
 const captureDateMiddleware = require("../../middleware/middleware");
 const router = express.Router();
 
-router.use("/randomRoute", todoRoute);
+router.use("/todos", todoRoute);
 
 // Uncomment in Milestone 5
 // const testRoute = require("./test.route");
