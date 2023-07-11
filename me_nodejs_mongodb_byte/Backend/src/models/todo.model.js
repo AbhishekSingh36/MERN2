@@ -19,7 +19,7 @@ const todoSchema = new mongoose.Schema(
       type: Boolean,
       default: true,
     },
-  },
+  }
 );
 
 module.exports = mongoose.model("Todo",todoSchema );
