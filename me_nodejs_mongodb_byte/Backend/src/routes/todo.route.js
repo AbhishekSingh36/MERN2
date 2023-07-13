@@ -18,6 +18,9 @@ const Todos = require("../../models/todo.model");
    const allTodos = await Todos.find({});
    res.send(allTodos);
 });
+router.post('/', async(req,res) => {
+   
+})
 
 
 /**
