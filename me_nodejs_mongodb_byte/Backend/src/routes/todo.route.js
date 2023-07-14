@@ -23,6 +23,7 @@ router.post('/', async(req,res) => {
    console.log(
       `URL:  /v1/todos${req.url == "/" ? "" : req.url}, Method:  ${req.method}, Timestamp: ${new Date()}`
     );
+    console.log("Request Body:", req.body)
 })
 
 
