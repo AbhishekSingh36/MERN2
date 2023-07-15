@@ -10,8 +10,11 @@ const Todos = require("../../models/todo.model");
  * curl http://localhost:8082/v1/todos?startDateMin=2020-11-04&startDateMax=2020-12-30
  * 
  */
+
+
 router.get("/", async (req, res) => {
-  res.send({});
+   const allTodos = await Todos.find({})
+   res.send(allTodos)
 });
 
 /**
@@ -45,5 +48,7 @@ router.get("/", async (req, res) => {
 // router.delete("/:id", (req, res) => {
 
 // });
+
+
 
 module.exports = router;
