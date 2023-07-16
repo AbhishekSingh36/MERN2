@@ -11,11 +11,14 @@ const Todos = require("../../models/todo.model");
  * 
  */
 
-
-router.get("/", async (req, res) => {
-   const allTodos = await Todos.find({})
-   res.send(allTodos)
+ router.get("/", async (req, res) => {
+   console.log(
+     `URL:  /v1/todos${req.url == "/" ? "" : req.url}, Method:  ${req.method}, Timestamp: ${new Date()}`
+   );
+   const allTodos = await Todos.find({});
+   res.send(allTodos);
 });
+
 
 /**
  * Add a TODO to the list
