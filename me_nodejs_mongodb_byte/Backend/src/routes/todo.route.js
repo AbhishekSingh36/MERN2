@@ -25,6 +25,12 @@ router.post('/', async(req,res) => {
     );
     console.log("Request Body:", req.body)
     console.log("Response Body undefined as of Now:", res.body)
+
+    const newTodo = {
+      name: req.body.name,
+      startDate: req.body.startDate,
+      endDate: req.body.endDate
+    }
 })
 
 
