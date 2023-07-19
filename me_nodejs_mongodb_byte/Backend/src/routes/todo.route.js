@@ -19,19 +19,22 @@ const Todos = require("../../models/todo.model");
    res.send(allTodos);
 });
 
-router.post('/', async(req,res) => {
+router.post("/", async (req, res) => {
    console.log(
-      `URL:  /v1/todos${req.url == "/" ? "" : req.url}, Method:  ${req.method}, Timestamp: ${new Date()}`
-    );
-    console.log("Request Body:", req.body)
-    console.log("Response Body undefined as of Now:", res.body)
-
-    const newTodo = {
-      name: req.body.name,
-      startDate: req.body.startDate,
-      endDate: req.body.endDate
-    }
-})
+     `URL:  /v1/todos${req.url == "/" ? "" : req.url}, Method:  ${req.method}, Timestamp: ${new Date()}`
+   );
+   console.log("Request body: ", req.body);
+   //console.log("Response Body undefined as of Now:", res.body)
+ 
+   let newTodo = {
+     name: req.body.name,
+     startDate: req.body.startDate,
+     endDate: req.body.endDate,
+   };
+ 
+   const newlyCreated = await Todos.create(newTodo);
+   res.status(201).send(newlyCreated)
+ });
 
 
 /**
