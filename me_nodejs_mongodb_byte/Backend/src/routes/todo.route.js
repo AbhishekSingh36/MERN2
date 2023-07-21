@@ -38,7 +38,7 @@ router.post("/", async (req, res) => {
   
  Todos.create(newTodo, (err, newlyCreated) => {
    if (err) {
-     console.log(err,"Error");
+     console.log(err,"Error log");
      res.status(500).send();
    } else {
      console.log("New todo item added: ", newlyCreated);
