@@ -41,7 +41,7 @@ router.post("/", async (req, res) => {
      console.log(err,"Error");
      res.status(500).send();
    } else {
-     console.log("New todo item: ", newlyCreated);
+     console.log("New todo item added: ", newlyCreated);
      res.status(201).send(newlyCreated);
    }
  });
