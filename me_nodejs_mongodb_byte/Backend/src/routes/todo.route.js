@@ -58,6 +58,10 @@ router.put("/", async(req,res)=> {
     endDate: req.body.endDate,
     pending: req.body.pending
   }
+
+  Todos.findByIdAndUpdate(idToUpdate,updatedTodo, (err,doc) => {
+    
+  })
  })
 
 
