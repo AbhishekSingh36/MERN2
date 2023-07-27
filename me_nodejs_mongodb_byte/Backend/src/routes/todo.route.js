@@ -50,7 +50,16 @@ router.post("/", async (req, res) => {
 router.put("/", async(req,res)=> {
   console.log("Request Body", req.body);
   console.log(`URL:  /v1/todos${req.url == "/" ? "" : req.url}, Method:  ${req.method}, Timestamp: ${new Date()}`)
+
+  const idToUpdate = req.body._id;
+  const updatedTodo = {
+    name: req.body.anem,
+    startDate: req.body.startDate,
+    endDate: req.body.endDate,
+    pending: req.body.pending
+  }
  })
+
 
 /**
  * Add a TODO to the list
