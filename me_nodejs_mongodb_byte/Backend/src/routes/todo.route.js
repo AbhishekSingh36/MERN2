@@ -47,22 +47,31 @@ router.post("/", async (req, res) => {
  });
 });
 
-router.put("/", async(req,res)=> {
-  console.log("Request Body", req.body);
-  console.log(`URL:  /v1/todos${req.url == "/" ? "" : req.url}, Method:  ${req.method}, Timestamp: ${new Date()}`)
 
+router.put("/", (req, res) => {
+  console.log("Request body: ", req.body);
+  console.log(
+    `URL:  /v1/todos${req.url == "/" ? "" : req.url}, Method:  ${req.method}, Timestamp: ${new Date()}`
+  );
   const idToUpdate = req.body._id;
   const updatedTodo = {
-    name: req.body.anem,
+    name: req.body.name,
     startDate: req.body.startDate,
     endDate: req.body.endDate,
-    pending: req.body.pending
-  }
+    pending: req.body.pending,
+  };
+  Todos.findByIdAndUpdate(idToUpdate, updatedTodo, (err, doc) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send();
+    } else if (doc == null) {
+      res.status(400).send({ error: "Resource not found" });
+    } else {
+      res.status(204).send();
+    }
+  });
+});
 
-  Todos.findByIdAndUpdate(idToUpdate,updatedTodo, (err,doc) => {
-    
-  })
- })
 
 
 /**
