@@ -72,7 +72,9 @@ router.put("/", (req, res) => {
   });
 });
 
-
+router.delete("/:id", (req,res) => {
+  
+})
 
 /**
  * Add a TODO to the list
