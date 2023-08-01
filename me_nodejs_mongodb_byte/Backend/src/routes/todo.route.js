@@ -72,17 +72,24 @@ router.put("/", (req, res) => {
   });
 });
 
-router.delete("/:id", (req,res) => {
-  const IdToDelete = req.params.id
+router.delete("/:id", (req, res) => {
+  const IdToDelete = req.params.id;
   console.log("IdToDelete", idToDelete)
   console.log("Deleted Body", req.body)
-  console.log(`URL:  /v1/todos${req.url == "/" ? "" : req.url}, Method:  ${req.method}, Timestamp: ${new Date()}`)
-
-  Todos.findByIdAndDelete(IdToDelete, (err,result) => {
-    
-  })
-
- })
+  console.log(
+    `URL:  /v1/todos${req.url == "/" ? "" : req.url}, Method:  ${req.method}, Timestamp: ${new Date()}`
+  );
+  Todos.findByIdAndDelete(IdToDelete, (err, result) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send();
+    } else {
+      res
+        .status(204)
+        .send();
+    }
+  });
+});
 
 /**
  * Add a TODO to the list
