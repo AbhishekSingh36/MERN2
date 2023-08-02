@@ -81,7 +81,7 @@ router.delete("/:id", (req, res) => {
   );
   Todos.findByIdAndDelete(IdToDelete, (err, result) => {
     if (err) {
-      console.log(err);
+      console.log("Error:",err);
       res.status(500).send();
     } else {
       res
