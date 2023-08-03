@@ -75,7 +75,7 @@ router.put("/", (req, res) => {
 router.delete("/:id", (req, res) => {
   const IdToDelete = req.params.id;
   console.log("IdToDelete", idToDelete)
-  console.log("Deleted Body", req.body)
+  console.log("Deleted request Body", req.body)
   console.log(
     `URL:  /v1/todos${req.url == "/" ? "" : req.url}, Method:  ${req.method}, Timestamp: ${new Date()}`
   );
