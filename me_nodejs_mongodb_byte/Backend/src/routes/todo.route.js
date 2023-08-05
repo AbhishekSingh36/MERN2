@@ -65,7 +65,7 @@ router.put("/", (req, res) => {
       console.log(err);
       res.status(500).send();
     } else if (doc == null) {
-      res.status(400).send({ error: "Resource not found" });
+      res.status(400).send({ error: "Resource not found :doc is NULL:" });
     } else {
       res.status(204).send();
     }
