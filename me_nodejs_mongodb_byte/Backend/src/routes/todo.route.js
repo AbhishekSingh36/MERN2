@@ -49,7 +49,7 @@ router.post("/", async (req, res) => {
 
 
 router.put("/", (req, res) => {
-  console.log("Request body: ", req.body);
+  console.log("Request body: (req.body @param) ", req.body);
   console.log(
     `URL:  /v1/todos${req.url == "/" ? "" : req.url}, Method:  ${req.method}, Timestamp: ${new Date()}`
   );
