@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
   console.log(
     `URL:  /v1/todos${req.url == "/" ? "" : req.url}, Method:  ${req.method}, Timestamp: ${new Date()}`
   );
-  console.log("Request body with (req param): ", req.body);
+  console.log("Request body with (req.body param): ", req.body);
   //console.log("Response Body undefined as of Now:", res.body)
 
   let newTodo = {
