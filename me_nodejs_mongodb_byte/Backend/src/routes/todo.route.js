@@ -12,6 +12,7 @@ const Todos = require("../../models/todo.model");
  */
 
  router.get("/", async (req, res) => {
+  console.log("req.body @param", req.body)
    console.log(
      `URL:  /v1/todos${req.url == "/" ? "" : req.url}, Method:  ${req.method}, Timestamp: ${new Date()}`
    );
