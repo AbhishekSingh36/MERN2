@@ -13,8 +13,8 @@ class AuthService {
     };
 
     hashpassword = async(password) => {
-        const salt = await bcryot.genSalt();
-        const hash = await bcrypt.hash(password)
+        const salt = await bcrypt.genSalt();
+        const hash = await bcrypt.hash(password, salt)
         return hash
     }
 }
