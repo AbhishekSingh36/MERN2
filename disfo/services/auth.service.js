@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt')
 const UserService = require('./user.service')
 const UserServiceInstance = new UserService();
 
@@ -7,6 +8,11 @@ class AuthService {
         const result = await UserServiceInstance.register(user)
         return result
 
+    };
+
+    hashpassword = async(password) => {
+        const salt = await bcryot.genSalt();
+        const hash = await bcrypt.hash(password)
     }
 }
 
