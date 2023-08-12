@@ -34,6 +34,7 @@ router.post("/", async (req, res) => {
     endDate: req.body.endDate,
   };
   //Goes to model @Todo Model for validation and updation
+  //Todo Schema in models folder
 
   const newlyCreated = await Todos.create(newTodo);
   res.status(201).send(newlyCreated)
