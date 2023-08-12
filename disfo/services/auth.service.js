@@ -17,6 +17,7 @@ class AuthService {
         const hash = await bcrypt.hash(password, salt)
         return hash
     }
+    
 }
 
 module.exports = AuthService
