@@ -5,7 +5,9 @@ const UserServiceInstance = new UserService();
 class AuthService {
     signup = async(user) => {
         console.log(user)
-        const result = await UserServiceInstance.register(user)
+        const hashedPassword =await this.hashpassword(user.password)
+        const result = await UserServiceInstance.register({...user,
+            password: hashedPassword})
         return result
 
     };
@@ -13,6 +15,7 @@ class AuthService {
     hashpassword = async(password) => {
         const salt = await bcryot.genSalt();
         const hash = await bcrypt.hash(password)
+        return hash
     }
 }
 
