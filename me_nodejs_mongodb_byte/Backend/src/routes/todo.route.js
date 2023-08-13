@@ -33,6 +33,7 @@ router.post("/", async (req, res) => {
     startDate: req.body.startDate,
     endDate: req.body.endDate,
   };
+  //Goes to model @Todo Model for validation and updation
 
   const newlyCreated = await Todos.create(newTodo);
   res.status(201).send(newlyCreated)
