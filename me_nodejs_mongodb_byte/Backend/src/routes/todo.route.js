@@ -96,6 +96,10 @@ router.delete("/:id", (req, res) => {
   });
 });
 
+router.get("/", async(req,res) => {
+  
+})
+
 /**
  * Add a TODO to the list
  * curl -X POST http://localhost:8082/v1/todos \
