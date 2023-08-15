@@ -64,6 +64,7 @@ router.put("/", (req, res) => {
     endDate: req.body.endDate,
     pending: req.body.pending,
   };
+  console.log("requesing body data to be updated", req.body)
   Todos.findByIdAndUpdate(idToUpdate, updatedTodo, (err, doc) => {
     if (err) {
       console.log(err);
