@@ -107,6 +107,20 @@ router.get("/", async(req,res) => {
     let startDateMin = new Date(req.query.startDateMin)
     startDateMin.setTime(startDateMin.getTime());
   }
+
+  Todos.find(
+    {
+      startDate: {
+        $lte: startDateMax,
+        $gte: startDateMin,
+      },
+    },
+    (err, allTodos) => {
+      if(err){
+        
+      }
+    }
+  )
 })
 
 /**
