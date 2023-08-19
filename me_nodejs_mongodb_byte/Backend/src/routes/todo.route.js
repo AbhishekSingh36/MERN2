@@ -96,32 +96,43 @@ router.delete("/:id", (req, res) => {
   });
 });
 
-router.get("/", async(req,res) => {
+router.get("/", async (req, res) => {
   console.log(
     `URL:  /v1/todos${req.url == "/" ? "" : req.url}, Method:  ${req.method}, Timestamp: ${new Date()}`
   );
-  if(req.query.startDateMax && req.query.startDateMin){
-    let startDateMax = new Date(req.query.startDateMax)
-    startDateMax.setTime(startDateMax.getTime())
+  if (req.query.startDateMax && req.query.startDateMin) {
 
-    let startDateMin = new Date(req.query.startDateMin)
+    let startDateMax = new Date(req.query.startDateMax);
+    startDateMax.setTime(startDateMax.getTime());
+    let startDateMin = new Date(req.query.startDateMin);
     startDateMin.setTime(startDateMin.getTime());
-  }
 
-  Todos.find(
-    {
-      startDate: {
-        $lte: startDateMax,
-        $gte: startDateMin,
+    Todos.find(
+      {
+        startDate: {
+          $lte: startDateMax,
+          $gte: startDateMin,
+        },
       },
-    },
-    (err, allTodos) => {
-      if(err){
-        
+      (err, allTodos) => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.send(allTodos);
+        }
       }
-    }
-  )
-})
+    );
+  } else {
+    Todos.find({}, (err, allTodos) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send();
+      } else {
+        res.send(allTodos);
+      }
+    });
+  }
+});
 
 /**
  * Add a TODO to the list
