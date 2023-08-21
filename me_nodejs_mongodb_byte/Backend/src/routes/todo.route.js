@@ -12,81 +12,75 @@ const Todos = require("../../models/todo.model");
  */
 
  router.get("/", async (req, res) => {
-  console.log("req.body @param", req.body)
-   console.log(
-     `URL:  /v1/todos${req.url == "/" ? "" : req.url}, Method:  ${req.method}, Timestamp: ${new Date()}`
-   );
+  //  console.log(
+  //    `URL:  /v1/todos${req.url == "/" ? "" : req.url}, Method:  ${req.method}, Timestamp: ${new Date()}`
+  //  );
    const allTodos = await Todos.find({});
    res.send(allTodos);
-   console.log("res.body @param", res.body)
 });
 
 router.post("/", async (req, res) => {
-  console.log(
-    `URL:  /v1/todos${req.url == "/" ? "" : req.url}, Method:  ${req.method}, Timestamp: ${new Date()}`
-  );
-  console.log("Request body with (req.body @param): ", req.body);
-  //console.log("Response Body undefined as of Now:", res.body)
+  //  console.log(
+  //    `URL:  /v1/todos${req.url == "/" ? "" : req.url}, Method:  ${req.method}, Timestamp: ${new Date()}`
+  //  );
+   console.log("Request body: ", req.body);
+   //console.log("Response Body undefined as of Now:", res.body)
+ 
+   let newTodo = {
+     name: req.body.name,
+     startDate: req.body.startDate,
+     endDate: req.body.endDate,
+   };
+ 
+   const newlyCreated = await Todos.create(newTodo);
+   res.status(201).send(newlyCreated)
 
-  let newTodo = {
-    name: req.body.name,
-    startDate: req.body.startDate,
-    endDate: req.body.endDate,
-  };
-  //Goes to model @Todo Model for validation and updation
-  //Todo Schema in models folder
-
-  const newlyCreated = await Todos.create(newTodo);
-  res.status(201).send(newlyCreated)
-
-  
- Todos.create(newTodo, (err, newlyCreated) => {
-   if (err) {
-     console.log(err,"Error log");
-     res.status(500).send();
-   } else {
-     console.log("New Todo item added: ", newlyCreated);
-     res.status(201).send(newlyCreated);
-   }
- });
-});
-
-
-router.put("/", (req, res) => {
-  console.log("Request body: (req.body @param) ", req.body);
-  console.log(
-    `URL:  /v1/todos${req.url == "/" ? "" : req.url}, Method:  ${req.method}, Timestamp: ${new Date()}`
-  );
-  const idToUpdate = req.body._id;
-  const updatedTodo = {
-    name: req.body.name,
-    startDate: req.body.startDate,
-    endDate: req.body.endDate,
-    pending: req.body.pending,
-  };
-  console.log("requesing body data to be updated", req.body)
-  Todos.findByIdAndUpdate(idToUpdate, updatedTodo, (err, doc) => {
+   
+  Todos.create(newTodo, (err, newlyCreated) => {
     if (err) {
       console.log(err);
       res.status(500).send();
-    } else if (doc == null) {
-      res.status(400).send({ error: "Resource not found :doc is NULL:" });
     } else {
-      res.status(204).send();
+      console.log("New todo item: ", newlyCreated);
+      res.status(201).send(newlyCreated);
     }
   });
-});
+ });
 
-router.delete("/:id", (req, res) => {
+ router.put("/", async(req,res)=> {
+  console.log("Request Body", req.body);
+  // console.log(`URL:  /v1/todos${req.url == "/" ? "" : req.url}, Method:  ${req.method}, Timestamp: ${new Date()}`)
+
+  const idToUpdate = req.body._id;
+  const updatedTodo = {
+    name: req.body.anem,
+    startDate: req.body.startDate,
+    endDate: req.body.endDate,
+    pending: req.body.pending
+  }
+
+  Todos.findByIdAndUpdate(idToUpdate,updatedTodo, (err,doc) => {
+    if(err) {
+      console.log(err)
+      res.status(500).send()
+    } else if(doc == null){
+      res.status(400).send({ error: "Resource not Found"})
+    } else{
+      res.status(204).send()
+    }
+  })
+ })
+
+ router.delete("/:id", (req, res) => {
   const IdToDelete = req.params.id;
-  console.log("IdToDelete", IdToDeletedToDelete)
-  console.log("Deleted request Body", req.body)
+  console.log("IdToDelete", idToDelete)
+  console.log("Deleted Body", req.body)
   console.log(
     `URL:  /v1/todos${req.url == "/" ? "" : req.url}, Method:  ${req.method}, Timestamp: ${new Date()}`
   );
   Todos.findByIdAndDelete(IdToDelete, (err, result) => {
     if (err) {
-      console.log("Error:",err);
+      console.log(err);
       res.status(500).send();
     } else {
       res
@@ -96,10 +90,11 @@ router.delete("/:id", (req, res) => {
   });
 });
 
+
 router.get("/", async (req, res) => {
-  console.log(
-    `URL:  /v1/todos${req.url == "/" ? "" : req.url}, Method:  ${req.method}, Timestamp: ${new Date()}`
-  );
+  // console.log(
+  //   `URL:  /v1/todos${req.url == "/" ? "" : req.url}, Method:  ${req.method}, Timestamp: ${new Date()}`
+  // );
   if (req.query.startDateMax && req.query.startDateMin) {
 
     let startDateMax = new Date(req.query.startDateMax);
@@ -133,6 +128,7 @@ router.get("/", async (req, res) => {
     });
   }
 });
+
 
 /**
  * Add a TODO to the list
