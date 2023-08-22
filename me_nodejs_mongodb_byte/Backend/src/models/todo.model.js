@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-// TODO - Complete the TODO schema
+// TODO schema
 const todoSchema = new mongoose.Schema(
   {
     name: {

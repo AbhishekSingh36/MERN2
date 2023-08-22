@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.use("/todos", todoRoute);
 
-// Uncomment in Milestone 5
+// Milestone 5
 const testRoute = require("./test.route");
 router.use("/test", testRoute);
 
