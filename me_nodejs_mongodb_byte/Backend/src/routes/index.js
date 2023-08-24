@@ -3,9 +3,15 @@ const todoRoute = require("./todo.route");
 const captureDateMiddleware = require("../../middleware/middleware");
 const router = express.Router();
 
+
+// In order to use middleware in router we use router.use instead of app.use router.use(captureDateMiddleware);
+
 router.use("/todos", todoRoute);
 
-// Milestone 5
+// Router Level Middleware
+router.use(captureDateMiddleware);
+
+// Uncomment in Milestone 5
 const testRoute = require("./test.route");
 router.use("/test", testRoute);
 
