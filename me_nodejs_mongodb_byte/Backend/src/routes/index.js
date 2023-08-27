@@ -11,7 +11,7 @@ router.use("/todos", todoRoute);
 // Router Level Middleware
 router.use(captureDateMiddleware);
 
-// Uncomment in Milestone 5
+// Milestone 5
 const testRoute = require("./test.route");
 router.use("/test", testRoute);
 
