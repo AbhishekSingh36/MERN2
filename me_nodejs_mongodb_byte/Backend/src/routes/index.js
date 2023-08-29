@@ -9,6 +9,8 @@ const router = express.Router();
 router.use("/todos", todoRoute);
 
 // Router Level Middleware
+//router.use() adds middleware that applies only to routes defined on a specific router.
+
 router.use(captureDateMiddleware);
 
 // Milestone 5
