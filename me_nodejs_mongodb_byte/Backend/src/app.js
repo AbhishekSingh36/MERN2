@@ -18,7 +18,7 @@ app.use("/v1", routes);
 
 // TODO - Create a MongoDB connection using Mongoose
 
-mongoose.connect(config.mongoose.url).then(() => {
+mongoose.connect(config.mongoose.url, config.mongoose.options).then(() => {
   console.log("Connected to MongoDB via Mongoosse.connect");
 });
 // Start the Node server
