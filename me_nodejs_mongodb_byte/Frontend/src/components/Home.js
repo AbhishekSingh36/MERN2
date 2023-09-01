@@ -127,7 +127,7 @@ class Home extends React.Component {
         <header className="header">
           <div className="header-content">
             <div>
-              <p className="header-text">Crio Notes App</p>
+              <p className="header-text">The Notes App</p>
             </div>
 
             <div className="header-action-container">
