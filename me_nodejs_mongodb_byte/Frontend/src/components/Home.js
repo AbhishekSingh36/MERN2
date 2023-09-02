@@ -116,7 +116,7 @@ class Home extends React.Component {
           <div>
             <p className="modal-sub-title">
               {" "}
-              Fill the following information to create a To-Do.
+              Details for To-Do.
             </p>{" "}
           </div>
           <SubmitForm
