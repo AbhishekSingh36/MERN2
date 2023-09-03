@@ -111,7 +111,7 @@ class Home extends React.Component {
           onCancel={this.handleCancel}
         >
           <div>
-            <p className="modal-title"> Add To-Do</p>{" "}
+            <p className="modal-title"> Create Note</p>{" "}
           </div>
           <div>
             <p className="modal-sub-title">
@@ -169,7 +169,7 @@ class Home extends React.Component {
               style={{ fontWeight: "700" }}
             />
           </span>{" "}
-          Add To-Do
+          Create Note 
         </div>
       </div>
     );
