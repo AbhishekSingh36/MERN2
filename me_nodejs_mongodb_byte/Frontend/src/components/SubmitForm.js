@@ -63,7 +63,7 @@ class SubmitForm extends React.Component {
           />
         </div>
         <div style={{ margin: "25px 0px 0px" }}>
-          <button class="primary-button">Add To-Do</button>
+          <button class="primary-button">Press To Create To-Do</button>
           <button class="secondary-button" onClick={this.props.onClose}>
             Close
           </button>
