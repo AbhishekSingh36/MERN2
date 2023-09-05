@@ -145,7 +145,7 @@ class Home extends React.Component {
                 <span>
                   <EditOutlined className="img-icon" />
                 </span>
-                Add To-Do
+                Create Note
               </button>
             </div>
           </div>
