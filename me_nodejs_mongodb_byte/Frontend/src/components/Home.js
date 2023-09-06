@@ -134,7 +134,7 @@ class Home extends React.Component {
               <div>
                 <Link to="/search">
                   <button className="primary-button" block={true}>
-                    Search
+                    Search Note
                   </button>
                 </Link>
               </div>
