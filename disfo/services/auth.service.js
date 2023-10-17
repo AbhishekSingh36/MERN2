@@ -17,6 +17,10 @@ class AuthService {
         const hash = await bcrypt.hash(password, salt)
         return hash
     }
+
+    login = async ({username, password}) => {
+        const user = await UserServiceInstance.findByUsername(username)
+    }
     
 }
 
