@@ -22,8 +22,12 @@ class AuthService {
         const user = await UserServiceInstance.findByUsername(username)
         if(!user){
             return {isLoggedIn: false}
-
-        user.password = password
+        }
+        const isPasswordMatching = await bcrypt.compare(password, user.password)
+        if(isPasswordMatching){
+            return {isLoggedIn: true}
+        } else {
+            return {isLoggedIn: false}
         }
     }
     
