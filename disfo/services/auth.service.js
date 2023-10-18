@@ -22,6 +22,8 @@ class AuthService {
         const user = await UserServiceInstance.findByUsername(username)
         if(!user){
             return {isLoggedIn: false}
+
+        user.password = password
         }
     }
     
