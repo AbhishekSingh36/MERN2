@@ -20,6 +20,9 @@ class AuthService {
 
     login = async ({username, password}) => {
         const user = await UserServiceInstance.findByUsername(username)
+        if(!user){
+            return {isLoggedIn: false}
+        }
     }
     
 }
