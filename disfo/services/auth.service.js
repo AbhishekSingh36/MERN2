@@ -6,7 +6,7 @@ class AuthService {
     signup = async(user) => {
         console.log(user)
         const hashedPassword =await this.hashpassword(user.password)
-        const result = await UserServiceInstance.register({...user,
+        const result = await UserServiceInstance.register({... user,
             password: hashedPassword})
         return result
 
