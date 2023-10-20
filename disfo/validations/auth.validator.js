@@ -5,4 +5,4 @@ const loginBodyValidationSchema = Joi.object().keys({
   password: Joi.string().required()
 });
 
-module.exports = { userValidationSchema };
+module.exports = { loginBodyValidationSchema };
