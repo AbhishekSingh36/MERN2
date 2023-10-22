@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt')
+const jwt = require("jsonwebtoken")
 const UserService = require('./user.service')
 const UserServiceInstance = new UserService();
 
@@ -25,10 +26,22 @@ class AuthService {
         }
         const isPasswordMatching = await bcrypt.compare(password, user.password)
         if(isPasswordMatching){
-            return {isLoggedIn: true}
+            return {isLoggedIn: true, jwt:this.generateToken(_id)}
         } else {
             return {isLoggedIn: false}
         }
+    }
+
+    generateToken = (userId) => {
+        secret = "secretKey"
+        const payload = {
+            userId
+        }
+        const options = {
+            expiresIn: "1h"
+        };
+        const token = jwt.sign(payload, this.secret, options)
+        return token;
     }
     
 }
