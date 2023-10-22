@@ -16,6 +16,9 @@ const postLogin = async(request,response) => {
         const {username, password} = request.body // email username password
         const result =  await AuthServiceInstance.login({username, password})
         if (result.isLoggedIn){
+            response.cookie("token", result.jwt,{
+                maxAge: 60*60*1000
+            })
             response.json(result);
         }else{
             response.status(403).json({message: "Incorrect Credentials"})
