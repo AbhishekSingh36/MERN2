@@ -16,7 +16,9 @@ mongoose
   .catch((error) => console.log("Failed to connect to DB\n", error));
 
 app.use(cors({
-  origin: `https://`
+  origin: `https://`,
+  allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept",
+  credentials: true,
 }))
 app.use(express.json());
 app.use("/user", userRoutes);
