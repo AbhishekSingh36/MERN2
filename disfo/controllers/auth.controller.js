@@ -17,7 +17,8 @@ const postLogin = async(request,response) => {
         const result =  await AuthServiceInstance.login({username, password})
         if (result.isLoggedIn){
             response.cookie("token", result.jwt,{
-                maxAge: 60*60*1000
+                maxAge: 60*60*1000,
+                httpOnly: true,
             })
             response.json(result);
         }else{
