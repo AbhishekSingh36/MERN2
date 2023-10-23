@@ -15,7 +15,9 @@ mongoose
   .then(() => console.log("Connected to DB at", DB_URI))
   .catch((error) => console.log("Failed to connect to DB\n", error));
 
-app.use(cors())
+app.use(cors({
+  origin: `https://`
+}))
 app.use(express.json());
 app.use("/user", userRoutes);
 app.use("/discussion", discussionRoutes);
