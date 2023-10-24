@@ -5,3 +5,11 @@ const options = {
     jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
     SecretOrKey: process.env.JWT_Secret
 }
+
+const strategy = new JWTStrategy(options, async(payload,done) => {
+
+})
+
+module.exports = (passport) => {
+    passport.use(strategy);
+}
