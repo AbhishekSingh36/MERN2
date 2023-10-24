@@ -4,6 +4,8 @@ const UserService = require('./user.service')
 const UserServiceInstance = new UserService();
 
 class AuthService {
+    secret = process.env.JWT_Secret;
+
     signup = async(user) => {
         console.log(user)
         const hashedPassword =await this.hashpassword(user.password)
@@ -33,7 +35,6 @@ class AuthService {
     }
 
     generateToken = (userId) => {
-        secret = "secretKey"
         const payload = {
             userId
         }
