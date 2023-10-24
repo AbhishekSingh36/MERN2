@@ -1,4 +1,6 @@
 require("dotenv").config();
+const passport = require('passport')
+const configurePassport = require('./config/passport')
 const cors = require('cors')
 const express = require("express");
 const userRoutes = require("./routes/user.routes");
@@ -10,6 +12,7 @@ const DB_URI = "mongodb://127.0.0.1:27017";
 const app = express();
 const PORT = 8082;
 
+configurePassport(passport)
 mongoose
   .connect(DB_URI)
   .then(() => console.log("Connected to DB at", DB_URI))
