@@ -1,4 +1,6 @@
 const router = require("express").Router();
+const passport = require('passport')
+
 const {
   findDiscussionById,
   findDiscussionsByUser,
@@ -23,8 +25,10 @@ const {
 const validateDiscussion = validateSchema(discussionValidationSchema);
 const validateComment = validateSchema(commentValidationSchema);
 
+const authmiddleware = passport.authenticate('jwt', {session:false})
 router.post(
   "/new",
+  authmiddleware,
   fetchUserInCollection,
   validateDiscussion,
   createNewDiscussion

@@ -7,7 +7,7 @@ const options = {
 }
 
 const strategy = new JWTStrategy(options, async(payload,done) => {
-
+    done(null, true)
 })
 
 module.exports = (passport) => {
